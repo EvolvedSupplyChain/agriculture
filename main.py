@@ -365,7 +365,7 @@ def main():
         client.publish(secretVars.telemTopic, json.dumps(testMsg).encode())
         
         #collect garbage and close files
-        
+        print("meaningless change for update test")
         time.sleep(5)
 
 main()
