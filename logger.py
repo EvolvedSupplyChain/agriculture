@@ -17,7 +17,9 @@ from umqttsimple import MQTTClient
 from ota import OTAUpdater
 from machine import Pin, SPI, I2C, ADC, RTC, unique_id
 
-print("OTA debug day two take 7")
+gc.collect()
+
+print("OTA debug day two take 3")
 #from Arducam import *
 #from camera import *
 
@@ -373,7 +375,7 @@ def main():
                    "lux": fullLux,
                    "spectral": specData,
                    "imageData": "pqmq1fqhVG7gaNMpWMQx8A==",
-                   "softwareVersion": 2.5
+                   "softwareVersion": 3.5
                    }
                  
         print(json.dumps(testMsg).encode())
