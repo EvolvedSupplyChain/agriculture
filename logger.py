@@ -17,7 +17,7 @@ from umqttsimple import MQTTClient
 from ota import OTAUpdater
 from machine import Pin, SPI, I2C, ADC, RTC, unique_id
 
-print("OTA debug day two take 1")
+print("OTA debug day two take 2")
 #from Arducam import *
 #from camera import *
 
