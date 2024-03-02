@@ -17,6 +17,7 @@ from umqttsimple import MQTTClient
 from ota import OTAUpdater
 from machine import Pin, SPI, I2C, ADC, RTC, unique_id
 
+print("OTA debug day two take 1")
 #from Arducam import *
 #from camera import *
 
@@ -40,7 +41,7 @@ while station.isconnected() == False:
     pass
 print(station.ifconfig())
 
-
+time.sleep(2)
 '''Time Check and Clock Set:'''
 NTP_DELTA = 2208988800   #Adjust this for time zone
 timeHost = "pool.ntp.org"
@@ -372,7 +373,7 @@ def main():
                    "lux": fullLux,
                    "spectral": specData,
                    "imageData": "pqmq1fqhVG7gaNMpWMQx8A==",
-                   "softwareVersion": 1.6
+                   "softwareVersion": 1.1
                    }
                  
         print(json.dumps(testMsg).encode())
