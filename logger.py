@@ -378,6 +378,8 @@ def main():
         client.publish(secretVars.telemTopic, json.dumps(testMsg).encode())
         
         #collect garbage and close files
+
+        print("OTA test change")
         
         time.sleep(5)
 
