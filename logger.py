@@ -25,7 +25,7 @@ firmware_url = "https://raw.githubusercontent.com/EvolvedSupplyChain/agriculture
 #updateFile = "main.py"
 #updateFilesList = []
 
-otaClient = OTAUpdater(secretVars.ssid, secretVars.wifiPassword, firmware_url, "main.py")
+otaClient = OTAUpdater(secretVars.ssid, secretVars.wifiPassword, firmware_url, "logger.py")
 #otaClient = OTAUpdater(secretVars.ssid, secretVars.wifiPassword, firmware_url, updateFile)
 #otaClient.download_and_install_update_if_available()
 otaClient.download_and_install_update_if_available()
