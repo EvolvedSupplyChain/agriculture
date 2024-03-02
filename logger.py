@@ -361,7 +361,7 @@ def main():
         
         testMsg = {"node": secretVars.nodeID,
                    "unitName": secretVars.unitName,
-                   "UID": machine.unique_id(),
+                   "UID": unique_id(),
                    "soilTemp": tempList,
                    "soilMoist": soilMoist,
                    "ambTemp1": ambientData[0],
