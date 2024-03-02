@@ -371,15 +371,14 @@ def main():
                    "dewPoint": ambientData[4], 
                    "lux": fullLux,
                    "spectral": specData,
-                   "imageData": "pqmq1fqhVG7gaNMpWMQx8A==" #base64 data goes here
+                   "imageData": "pqmq1fqhVG7gaNMpWMQx8A==",
+                   "softwareVersion:" 1.1
                    }
                  
         print(json.dumps(testMsg).encode())
         client.publish(secretVars.telemTopic, json.dumps(testMsg).encode())
         
         #collect garbage and close files
-
-        print("OTA test change2")
         
         time.sleep(5)
 
