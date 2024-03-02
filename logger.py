@@ -379,7 +379,7 @@ def main():
         
         #collect garbage and close files
 
-        print("OTA test change")
+        print("OTA test change2")
         
         time.sleep(5)
 
