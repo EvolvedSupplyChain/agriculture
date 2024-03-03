@@ -378,7 +378,7 @@ def main():
                    "lux": fullLux,
                    "spectral": specData,
                    "imageData": "pqmq1fqhVG7gaNMpWMQx8A==",
-                   "softwareVersion": 4.6
+                   "softwareVersion": 5.25
                    }
                  
         print(json.dumps(testMsg).encode())
