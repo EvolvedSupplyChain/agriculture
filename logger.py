@@ -33,11 +33,14 @@ otaClient = OTAUpdater(secretVars.ssid, secretVars.wifiPassword, firmware_url, "
 #otaClient.download_and_install_update_if_available()
 otaClient.download_and_install_update_if_available()
 
+time.sleep(3)
 
 '''wifi connection:'''
 station = network.WLAN(network.STA_IF)
 station.active(True)
 station.connect(secretVars.ssid, secretVars.wifiPassword)
+
+time.sleep(3)
 
 while station.isconnected() == False:
     pass
@@ -375,7 +378,7 @@ def main():
                    "lux": fullLux,
                    "spectral": specData,
                    "imageData": "pqmq1fqhVG7gaNMpWMQx8A==",
-                   "softwareVersion": 4.1
+                   "softwareVersion": 4.2
                    }
                  
         print(json.dumps(testMsg).encode())
@@ -387,3 +390,4 @@ def main():
 
 main()
  
+
