@@ -19,6 +19,8 @@ from machine import Pin, SPI, I2C, ADC, RTC, unique_id
 
 gc.collect()
 
+logTime = 5
+
 print("OTA debug day two take 3")
 #from Arducam import *
 #from camera import *
@@ -56,7 +58,7 @@ def set_time():
     # Get the external time reference
     NTP_QUERY = bytearray(48)
     NTP_QUERY[0] = 0x1B
-    addr = socket.getaddrinfo(host, 123)[0][-1]
+    addr = socket.getaddrinfo(timeHost, 123)[0][-1]
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
         s.settimeout(1)
@@ -69,8 +71,11 @@ def set_time():
     val = struct.unpack("!I", msg[40:44])[0]
     tm = val - NTP_DELTA    
     t = time.gmtime(tm)
-    rtc.datetime((t[0],t[1],t[2],t[6]+1,t[3],t[4],t[5],0))
+    rtClock.datetime((t[0],t[1],t[2],t[6]+1,t[3],t[4],t[5],0))
 
+set_time()
+print(time.localtime())
+lastUpdateCheck = time.time()
 
 '''OTA Updater'''
 #firmware_url = "https://raw.githubusercontent.com/EvolvedSupplyChain/agriculture/main/"
@@ -87,7 +92,16 @@ def set_time():
 def sub_cb(topic, msg):
   print((topic, msg))
   if topic == secretVars.ccTopic:
-    print('Topic: ' + topic + 'Message: ' + msg)
+    #print('Topic: ' + topic + 'Message: ' + msg)
+    if msg == b"returnSettings":
+        theSettings = {
+            "loggingInterval": logTime,
+            "spectralGain": "16x"
+            }
+        client.publish(secretVars.ccTopic, json.dumps(theSettings).encode())
+    elif msg == "changeSettings":
+        #change device settings
+        pass
     '''match msg:
         case "setProp":
             print(msg)
@@ -378,7 +392,7 @@ def main():
                    "lux": fullLux,
                    "spectral": specData,
                    "imageData": "pqmq1fqhVG7gaNMpWMQx8A==",
-                   "softwareVersion": 5.75
+                   "softwareVersion": 8.1
                    }
                  
         print(json.dumps(testMsg).encode())
@@ -386,8 +400,19 @@ def main():
         
         #collect garbage and close files
         
-        time.sleep(5)
+        time.sleep(logTime)
+        
+        client.check_msg()
+        
+        if time.time() - lastUpdateCheck > 86400:
+            #global lastUpdateCheck
+            #lastUpdateCheck = time.time()
+            #otaClient.download_and_install_update_if_available()
+            print(time.time() - lastUpdateCheck)
+        else:
+            pass
 
 main()
  
+
 
