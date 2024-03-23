@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Viper Config</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Set up your new Viper:</h1>
+        <form action="/config", method="POST">
+        <label for="unitname">Name your Viper:</label><br>
+        <input type="text" id="unitname" name="unitname"><br>
+        <p>
+        <br>
+        <input type="radio" id="indoor" name="inout" value="indoor">
+        <label for="indoor">Indoor</label><br>
+        <input type="radio" id="outdoor" name="inout" value="outdoor">
+        <label for="outdoor">Outdoor</label><br>
+        <p>
+        <br>
+        <label for="plantprefix">Prefix name for your plants:</label><br>
+        <input type="text" id="plantprefix" name="plantprefix"><br>
+        <label for="plantnum">Number of plants:</label><br>
+        <select id="plantnum" name="plantnum">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>    
+        <br>            
+        <p>
+        <br>
+        <input type="submit" value="Submit">
+        </form>
+
+    </body>
+    </html>
