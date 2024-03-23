@@ -1,0 +1,17 @@
+{
+  "NAME": "test",
+  "UPDATEPATH": "https://raw.githubusercontent.com/EvolvedSupplyChain/otaTest/main/",
+  "FILEMANIFEST": [
+    {
+      "FILENAME": "logger.py",
+      "VERSION": "3",
+      "CHECKFLAG": true
+    },
+    {
+      "FILENAME": "test.txt",
+      "VERSION": "6",
+      "CHECKFLAG": false
+    }
+  ],
+  "BOOTMODE": 0
+}

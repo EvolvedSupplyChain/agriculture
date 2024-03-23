@@ -1,0 +1,17 @@
+{
+  "NAME": "test",
+  "UPDATEPATH": "someurl/something",
+  "FILEMANIFEST": [
+    {
+      "FILENAME": "bob.py",
+      "VERSION": "3",
+      "CHECKFLAG": true
+    },
+    {
+      "FILENAME": "bill.py",
+      "VERSION": "6",
+      "CHECKFLAG": false
+    }
+  ],
+  "BOOTMODE": 0
+}
